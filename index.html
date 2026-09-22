@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bug Report — per product line</title>
+<title>Bug Report — DBs/Services/Apps</title>
 <style>
   :root{ color-scheme:light;
     --bg:#f4f6fa; --panel:#fff; --ink:#1f2733; --muted:#6b7686; --line:#e4e8ef;
@@ -95,7 +95,7 @@ const PRODUCT = "DBs/Services/Apps";
 const WEEKS = ["W36", "W37", "W38", "W39"];
 const COLORS = {Open:"#d6443c",Resolved:"#e0a106",Closed:"#1f9d57"};
 const bugStageReleased = {"Open": [0, 1, 0, 0], "Resolved": [7, 7, 4, 3], "Closed": [304, 307, 311, 269]};
-const bugStageFeature  = {"Open": [32, 27, 22, 3], "Resolved": [19, 10, 9, 15], "Closed": [132, 148, 157, 143]};
+const bugStageFeature  = {"Open": [32, 27, 22, 2], "Resolved": [19, 10, 9, 16], "Closed": [132, 148, 157, 143]};
 
 /* Priority: P1 = blocks users / some test cases · P2 = critical · P3 = mostly UI */
 const PRIO = { P1:{label:"Blocks users",rank:1}, P2:{label:"Critical",rank:2}, P3:{label:"Mostly UI",rank:3}, P4:{label:"Minor",rank:4}, P5:{label:"Trivial",rank:5} };
@@ -126,18 +126,6 @@ const BUGS = [
     87,
     "P3",
     "Kieu Pham"
-  ],
-  [
-    "NJM-10381",
-    "[8.6][Exchange OLR, AD OLR, SQL OLR] Accessible backup repositories displayed as disabled items in Step 1. Backups of Exchange Object Recovery Wizard",
-    "P3",
-    "feature",
-    "Open",
-    2736,
-    0,
-    60,
-    "P3",
-    "Cassie Ho"
   ]
 ];
 
@@ -227,11 +215,11 @@ function renderBug(product){
   </div>
 
     <div class="kpis">
-    ${kpi("Open bugs","3","","▼ 19 vs last week","down",true)}
+    ${kpi("Open bugs","2","","▼ 20 vs last week","down",true)}
     ${kpi("Open P1","0","","","flat",true)}
     ${kpi("Open P2","0","","▼ 2 vs last week","down",true)}
     ${kpi("New","0","","▼ 3 vs last week","down")}
-    ${kpi("Resolved","14","","▲ 1 vs last week","down")}
+    ${kpi("Resolved","15","","▲ 2 vs last week","down")}
   </div>
 
   <h2 class="sec">Bugs by stage over time — last 4 weeks</h2>
