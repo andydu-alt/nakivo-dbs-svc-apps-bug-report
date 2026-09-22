@@ -94,8 +94,8 @@ const PRODUCT = "DBs/Services/Apps";
 
 const WEEKS = ["W36", "W37", "W38", "W39"];
 const COLORS = {Open:"#d6443c",Resolved:"#e0a106",Closed:"#1f9d57"};
-const bugStageReleased = {"Open": [0, 0, 0, 0], "Resolved": [3, 3, 3, 3], "Closed": [266, 269, 269, 269]};
-const bugStageFeature  = {"Open": [2, 2, 2, 2], "Resolved": [15, 15, 16, 16], "Closed": [142, 142, 143, 143]};
+const bugStageReleased = {"Open": [2, 2, 2, 2], "Resolved": [15, 15, 15, 15], "Closed": [295, 298, 298, 298]};
+const bugStageFeature  = {"Open": [0, 0, 0, 0], "Resolved": [3, 3, 4, 4], "Closed": [113, 113, 114, 114]};
 
 /* Priority: P1 = blocks users / some test cases · P2 = critical · P3 = mostly UI */
 const PRIO = { P1:{label:"Blocks users",rank:1}, P2:{label:"Critical",rank:2}, P3:{label:"Mostly UI",rank:3}, P4:{label:"Minor",rank:4}, P5:{label:"Trivial",rank:5} };
@@ -107,7 +107,7 @@ const BUGS = [
     "NJM-47845",
     "[10.6][OLR SQL] Can't update database when changing SQL instance",
     "P3",
-    "feature",
+    "regression",
     "Reopened",
     1671,
     0,
@@ -119,7 +119,7 @@ const BUGS = [
     "NJM-37138",
     "[10.5][SQL][Facelift v4] SQL OLR wizard Objects step - database icon is changed when changing from tables view back to RP view",
     "P3",
-    "feature",
+    "regression",
     "Reopened",
     1838,
     2,
