@@ -92,10 +92,10 @@
    DBs/Services/Apps · Sec/Mon · STORaaS/BKaaS · Internal systems · Core (repo & storage) · Core (general) · FLB/Share */
 const PRODUCT = "DBs/Services/Apps";
 
-const WEEKS = ["W36", "W37", "W38", "W39"];
+const WEEKS = ["W37", "W38", "W39", "W40"];
 const COLORS = {Open:"#d6443c",Resolved:"#e0a106",Closed:"#1f9d57"};
-const bugStageReleased = {"Open": [2, 2, 2, 6], "Resolved": [15, 15, 15, 10], "Closed": [295, 298, 298, 300]};
-const bugStageFeature  = {"Open": [0, 0, 0, 0], "Resolved": [3, 3, 4, 3], "Closed": [113, 113, 114, 114]};
+const bugStageReleased = {"Open": [2, 2, 6, 8], "Resolved": [15, 15, 10, 4], "Closed": [298, 298, 300, 304]};
+const bugStageFeature  = {"Open": [0, 0, 0, 0], "Resolved": [3, 4, 3, 3], "Closed": [113, 114, 114, 114]};
 
 /* Priority: P1 = blocks users / some test cases · P2 = critical · P3 = mostly UI */
 const PRIO = { P1:{label:"Blocks users",rank:1}, P2:{label:"Critical",rank:2}, P3:{label:"Mostly UI",rank:3}, P4:{label:"Minor",rank:4}, P5:{label:"Trivial",rank:5} };
@@ -104,15 +104,15 @@ const PRIO = { P1:{label:"Blocks users",rank:1}, P2:{label:"Critical",rank:2}, P
    [key, summary, priority, type(regression|feature), status, ageDays, linkedSupportTickets, weight, severity, assignee] */
 const BUGS = [
   [
-    "NJM-194147",
-    "[11.2.3 GA][OLR Exchange SE] Error \"The database cannot be opened\" when opening the Mailbox database",
-    "P1",
+    "NJM-103059",
+    "[10.12][OLR - Exchange] Activities - The content is empty incase recover an email without Subject",
+    "P3",
     "regression",
-    "Open",
-    1,
-    1,
+    "Reopened",
+    942,
+    0,
     100,
-    "P1",
+    "P3",
     "Ha Tran"
   ],
   [
@@ -121,7 +121,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1676,
+    1683,
     0,
     73,
     "P3",
@@ -133,7 +133,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1843,
+    1850,
     2,
     87,
     "P3",
@@ -145,7 +145,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1943,
+    1950,
     0,
     15,
     "P3",
@@ -157,7 +157,19 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2365,
+    2372,
+    1,
+    15,
+    "P3",
+    "Ha Tran"
+  ],
+  [
+    "NJM-14604",
+    "Exchange RTS: recovery of database fails If db and its logs are located in the different folder (recover to custom location with overwrite)",
+    "P3",
+    "regression",
+    "Reopened",
+    2378,
     1,
     15,
     "P3",
@@ -169,9 +181,21 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2662,
+    2669,
     0,
     15,
+    "P3",
+    "Ha Tran"
+  ],
+  [
+    "NJM-10381",
+    "[8.6][Exchange OLR, AD OLR, SQL OLR] Accessible backup repositories displayed as disabled items in Step 1. Backups of Exchange Object Recovery Wizard",
+    "P3",
+    "regression",
+    "Reopened",
+    2748,
+    0,
+    60,
     "P3",
     "Ha Tran"
   ]
@@ -263,11 +287,11 @@ function renderBug(product){
   </div>
 
     <div class="kpis">
-    ${kpi("Open bugs","6","","▲ 4 vs last week","up",true)}
-    ${kpi("Open P1","1","","▲ 1 vs last week","up",true)}
+    ${kpi("Open bugs","8","","▲ 2 vs last week","up",true)}
+    ${kpi("Open P1","0","","▼ 1 vs last week","down",true)}
     ${kpi("Open P2","0","","","flat",true)}
-    ${kpi("New","1","","▼ 1 vs last week","down")}
-    ${kpi("Resolved","12","","▲ 9 vs last week","down")}
+    ${kpi("New","0","","▼ 1 vs last week","down")}
+    ${kpi("Resolved","0","","▼ 12 vs last week","up")}
   </div>
 
   <h2 class="sec">Bugs by stage over time — last 4 weeks</h2>
@@ -315,7 +339,7 @@ function renderBug(product){
 
 function render(){
   $("#ttl").textContent=`Bug Report — ${PRODUCT}`;
-  $("#meta").textContent=`Reporting week W39 (28 Sep–4 Oct 2026) · assignee: all · live data`;
+  $("#meta").textContent=`Reporting week W40 (5 Oct–11 Oct 2026) · assignee: all · live data`;
   $("#content").innerHTML=renderBug(PRODUCT);
   document.querySelectorAll("#bugTabs button").forEach(b=>b.onclick=()=>{bugFilter=b.dataset.f; currentPage=1; render();});
   document.querySelectorAll("#bugTable th").forEach(th=>th.onclick=()=>{const k=th.dataset.k; if(!k) return; if(sortKey===k){sortDir*=-1;}else{sortKey=k;sortDir=(k==='weight'||k==='age'||k==='linked')?-1:1;} currentPage=1; render();});
