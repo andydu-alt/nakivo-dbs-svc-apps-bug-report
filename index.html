@@ -302,7 +302,7 @@ function renderBug(product){
 
   <div class="card">
     <h3>Prioritized bug queue</h3>
-    <div class="csub">Open and Reopened ${product} bugs only — <b>click any column header to sort</b>. Default order: Priority, then Severity, then Weight descending. Priority and Severity always dominate Weight. Weight is the Jira field (default 100), set by QA/PM.</div>
+    <div class="csub">Open and Reopened ${product} bugs, live as of this run — <b>click any column header to sort</b>. Default order: Priority, then Severity, then Weight descending. Priority and Severity always dominate Weight. Weight is the Jira field (default 100), set by QA/PM.</div>
     <table id="bugTable"><thead><tr>
       <th data-k="key">Key${arrow('key')}</th><th data-k="summary">Summary${arrow('summary')}</th>
       <th data-k="prio">Priority${arrow('prio')}</th><th data-k="sev">Severity${arrow('sev')}</th><th data-k="type">Type${arrow('type')}</th>
