@@ -92,10 +92,10 @@
    DBs/Services/Apps · Sec/Mon · STORaaS/BKaaS · Internal systems · Core (repo & storage) · Core (general) · FLB/Share */
 const PRODUCT = "DBs/Services/Apps";
 
-const WEEKS = ["W37", "W38", "W39", "W40"];
+const WEEKS = ["W38", "W39", "W40", "W41"];
 const COLORS = {Open:"#d6443c",Resolved:"#e0a106",Closed:"#1f9d57"};
-const bugStageReleased = {"Open": [2, 2, 6, 8], "Resolved": [15, 15, 10, 4], "Closed": [298, 298, 300, 304]};
-const bugStageFeature  = {"Open": [0, 0, 0, 0], "Resolved": [3, 4, 3, 2], "Closed": [113, 114, 114, 115]};
+const bugStageReleased = {"Open": [2, 6, 8, 8], "Resolved": [15, 10, 4, 4], "Closed": [298, 300, 304, 304]};
+const bugStageFeature  = {"Open": [0, 0, 0, 0], "Resolved": [4, 3, 2, 2], "Closed": [114, 114, 115, 115]};
 
 /* Priority: P1 = blocks users / some test cases · P2 = critical · P3 = mostly UI */
 const PRIO = { P1:{label:"Blocks users",rank:1}, P2:{label:"Critical",rank:2}, P3:{label:"Mostly UI",rank:3}, P4:{label:"Minor",rank:4}, P5:{label:"Trivial",rank:5} };
@@ -109,7 +109,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    945,
+    949,
     0,
     100,
     "P3",
@@ -121,11 +121,11 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1686,
+    1690,
     0,
     73,
     "P3",
-    "Ha Tran"
+    "Tuan Cao"
   ],
   [
     "NJM-37138",
@@ -133,7 +133,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1853,
+    1857,
     2,
     87,
     "P3",
@@ -145,11 +145,11 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1952,
+    1957,
     0,
     15,
     "P3",
-    "Ha Tran"
+    "Tuan Cao"
   ],
   [
     "NJM-14663",
@@ -157,11 +157,11 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2375,
+    2379,
     1,
     15,
     "P3",
-    "Ha Tran"
+    "Tuan Cao"
   ],
   [
     "NJM-14604",
@@ -169,11 +169,11 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2380,
+    2385,
     1,
     15,
     "P3",
-    "Ha Tran"
+    "Tuan Cao"
   ],
   [
     "NJM-11165",
@@ -181,11 +181,11 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2672,
+    2676,
     0,
     15,
     "P3",
-    "Ha Tran"
+    "Tuan Cao"
   ],
   [
     "NJM-10381",
@@ -193,11 +193,11 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2751,
+    2755,
     0,
     60,
     "P3",
-    "Ha Tran"
+    "Tuan Cao"
   ]
 ];
 
@@ -287,11 +287,11 @@ function renderBug(product){
   </div>
 
     <div class="kpis">
-    ${kpi("Open bugs","8","","▲ 2 vs last week","up",true)}
-    ${kpi("Open P1","0","","▼ 1 vs last week","down",true)}
+    ${kpi("Open bugs","8","","","flat",true)}
+    ${kpi("Open P1","0","","","flat",true)}
     ${kpi("Open P2","0","","","flat",true)}
-    ${kpi("New","0","","▼ 1 vs last week","down")}
-    ${kpi("Resolved","0","","▼ 12 vs last week","up")}
+    ${kpi("New","0","","","flat")}
+    ${kpi("Resolved","0","","","flat")}
   </div>
 
   <h2 class="sec">Bugs by stage over time — last 4 weeks</h2>
@@ -339,7 +339,7 @@ function renderBug(product){
 
 function render(){
   $("#ttl").textContent=`Bug Report — ${PRODUCT}`;
-  $("#meta").textContent=`Reporting week W40 (28 Sep–4 Oct 2026) · assignee: all · live data`;
+  $("#meta").textContent=`Reporting week W41 (5 Oct–11 Oct 2026) · assignee: all · live data`;
   $("#content").innerHTML=renderBug(PRODUCT);
   document.querySelectorAll("#bugTabs button").forEach(b=>b.onclick=()=>{bugFilter=b.dataset.f; currentPage=1; render();});
   document.querySelectorAll("#bugTable th").forEach(th=>th.onclick=()=>{const k=th.dataset.k; if(!k) return; if(sortKey===k){sortDir*=-1;}else{sortKey=k;sortDir=(k==='weight'||k==='age'||k==='linked')?-1:1;} currentPage=1; render();});
