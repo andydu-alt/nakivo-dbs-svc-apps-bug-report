@@ -92,10 +92,10 @@
    DBs/Services/Apps · Sec/Mon · STORaaS/BKaaS · Internal systems · Core (repo & storage) · Core (general) · FLB/Share */
 const PRODUCT = "DBs/Services/Apps";
 
-const WEEKS = ["W38", "W39", "W40", "W41"];
+const WEEKS = ["W39", "W40", "W41", "W42"];
 const COLORS = {Open:"#d6443c",Resolved:"#e0a106",Closed:"#1f9d57"};
-const bugStageReleased = {"Open": [2, 6, 8, 8], "Resolved": [15, 10, 4, 4], "Closed": [298, 300, 304, 304]};
-const bugStageFeature  = {"Open": [0, 0, 0, 0], "Resolved": [4, 3, 2, 2], "Closed": [114, 114, 115, 115]};
+const bugStageReleased = {"Open": [6, 8, 8, 10], "Resolved": [10, 4, 4, 5], "Closed": [300, 304, 304, 304]};
+const bugStageFeature  = {"Open": [0, 0, 0, 0], "Resolved": [3, 2, 2, 2], "Closed": [114, 115, 115, 115]};
 
 /* Priority: P1 = blocks users / some test cases · P2 = critical · P3 = mostly UI */
 const PRIO = { P1:{label:"Blocks users",rank:1}, P2:{label:"Critical",rank:2}, P3:{label:"Mostly UI",rank:3}, P4:{label:"Minor",rank:4}, P5:{label:"Trivial",rank:5} };
@@ -104,12 +104,48 @@ const PRIO = { P1:{label:"Blocks users",rank:1}, P2:{label:"Critical",rank:2}, P
    [key, summary, priority, type(regression|feature), status, ageDays, linkedSupportTickets, weight, severity, assignee] */
 const BUGS = [
   [
+    "NJM-207099",
+    "[11.3.0-GA][OLR-Exchange] Send recovery files to a single email failed",
+    "P2",
+    "regression",
+    "Open",
+    2,
+    1,
+    100,
+    "P2",
+    "Ha Tran"
+  ],
+  [
+    "NJM-206755",
+    "[11.3.0-GA][OLR-SQL] Job OLR SQL has failed when behavior is Overwrite",
+    "P2",
+    "regression",
+    "Open",
+    3,
+    4,
+    100,
+    "P2",
+    "Ha Tran"
+  ],
+  [
+    "NJM-203679",
+    "[11.3] Object recovery for Microsoft Active Directory is not displayed on the Activities page",
+    "P3",
+    "regression",
+    "Open",
+    6,
+    0,
+    100,
+    "P3",
+    "Ha Tran"
+  ],
+  [
     "NJM-103059",
     "[10.12][OLR - Exchange] Activities - The content is empty incase recover an email without Subject",
     "P3",
     "regression",
     "Reopened",
-    949,
+    956,
     0,
     100,
     "P3",
@@ -121,11 +157,11 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1690,
+    1697,
     0,
     73,
     "P3",
-    "Tuan Cao"
+    "Ha Tran"
   ],
   [
     "NJM-37138",
@@ -133,23 +169,11 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1857,
+    1864,
     2,
     87,
     "P3",
     "Kieu Pham"
-  ],
-  [
-    "NJM-30636",
-    "[10.4][OLR Exchange] Can't load database when change the recovery point",
-    "P3",
-    "regression",
-    "Reopened",
-    1957,
-    0,
-    15,
-    "P3",
-    "Tuan Cao"
   ],
   [
     "NJM-14663",
@@ -157,7 +181,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2379,
+    2386,
     1,
     15,
     "P3",
@@ -169,7 +193,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2385,
+    2392,
     1,
     15,
     "P3",
@@ -181,7 +205,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2676,
+    2683,
     0,
     15,
     "P3",
@@ -193,7 +217,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2755,
+    2762,
     0,
     60,
     "P3",
@@ -287,11 +311,11 @@ function renderBug(product){
   </div>
 
     <div class="kpis">
-    ${kpi("Open bugs","8","","","flat",true)}
+    ${kpi("Open bugs","10","","▲ 2 vs last week","up",true)}
     ${kpi("Open P1","0","","","flat",true)}
-    ${kpi("Open P2","0","","","flat",true)}
-    ${kpi("New","0","","","flat")}
-    ${kpi("Resolved","0","","","flat")}
+    ${kpi("Open P2","2","","▲ 2 vs last week","up",true)}
+    ${kpi("New","3","","▲ 3 vs last week","up")}
+    ${kpi("Resolved","1","","▲ 1 vs last week","down")}
   </div>
 
   <h2 class="sec">Bugs by stage over time — last 4 weeks</h2>
@@ -339,7 +363,7 @@ function renderBug(product){
 
 function render(){
   $("#ttl").textContent=`Bug Report — ${PRODUCT}`;
-  $("#meta").textContent=`Reporting week W41 (5 Oct–11 Oct 2026) · assignee: all · live data`;
+  $("#meta").textContent=`Reporting week W42 (12 Oct–18 Oct 2026) · assignee: all · live data`;
   $("#content").innerHTML=renderBug(PRODUCT);
   document.querySelectorAll("#bugTabs button").forEach(b=>b.onclick=()=>{bugFilter=b.dataset.f; currentPage=1; render();});
   document.querySelectorAll("#bugTable th").forEach(th=>th.onclick=()=>{const k=th.dataset.k; if(!k) return; if(sortKey===k){sortDir*=-1;}else{sortKey=k;sortDir=(k==='weight'||k==='age'||k==='linked')?-1:1;} currentPage=1; render();});
