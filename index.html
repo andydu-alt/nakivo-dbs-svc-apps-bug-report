@@ -94,7 +94,7 @@ const PRODUCT = "DBs/Services/Apps";
 
 const WEEKS = ["W39", "W40", "W41", "W42"];
 const COLORS = {Open:"#d6443c",Resolved:"#e0a106",Closed:"#1f9d57"};
-const bugStageReleased = {"Open": [5, 8, 8, 10], "Resolved": [11, 4, 4, 5], "Closed": [300, 304, 304, 304]};
+const bugStageReleased = {"Open": [5, 8, 8, 11], "Resolved": [11, 4, 4, 4], "Closed": [300, 304, 304, 304]};
 const bugStageFeature  = {"Open": [0, 0, 0, 0], "Resolved": [3, 3, 2, 2], "Closed": [114, 114, 115, 115]};
 
 /* Priority: P1 = blocks users / some test cases · P2 = critical · P3 = mostly UI */
@@ -111,7 +111,7 @@ const BUGS = [
     "Reopened",
     5,
     1,
-    100,
+    60,
     "P2",
     "Diet Nguyen"
   ],
@@ -123,7 +123,7 @@ const BUGS = [
     "Reopened",
     6,
     4,
-    100,
+    80,
     "P2",
     "Ha Tran"
   ],
@@ -135,7 +135,7 @@ const BUGS = [
     "Open",
     9,
     0,
-    100,
+    56,
     "P3",
     "Ha Tran"
   ],
@@ -147,7 +147,7 @@ const BUGS = [
     "Reopened",
     959,
     0,
-    100,
+    91,
     "P3",
     "Ha Tran"
   ],
@@ -159,7 +159,7 @@ const BUGS = [
     "Reopened",
     1700,
     0,
-    73,
+    21,
     "P3",
     "Ha Tran"
   ],
@@ -171,7 +171,7 @@ const BUGS = [
     "Reopened",
     1867,
     2,
-    87,
+    56,
     "P3",
     "Kieu Pham"
   ],
@@ -183,7 +183,7 @@ const BUGS = [
     "Reopened",
     1967,
     0,
-    15,
+    21,
     "P3",
     "Hai Tran"
   ],
@@ -195,7 +195,7 @@ const BUGS = [
     "Reopened",
     2389,
     1,
-    15,
+    56,
     "P3",
     "Tuan Cao"
   ],
@@ -207,7 +207,7 @@ const BUGS = [
     "Reopened",
     2395,
     1,
-    15,
+    56,
     "P3",
     "Ha Tran"
   ],
@@ -219,7 +219,7 @@ const BUGS = [
     "Reopened",
     2687,
     0,
-    15,
+    21,
     "P3",
     "Ha Tran"
   ],
@@ -231,7 +231,7 @@ const BUGS = [
     "Reopened",
     2765,
     0,
-    60,
+    21,
     "P3",
     "Ha Tran"
   ]
@@ -323,11 +323,11 @@ function renderBug(product){
   </div>
 
     <div class="kpis">
-    ${kpi("Open bugs","10","","▲ 2 vs last week","up",true)}
+    ${kpi("Open bugs","11","","▲ 3 vs last week","up",true)}
     ${kpi("Open P1","0","","","flat",true)}
     ${kpi("Open P2","2","","▲ 2 vs last week","up",true)}
     ${kpi("New","3","","▲ 3 vs last week","up")}
-    ${kpi("Resolved","1","","▲ 1 vs last week","down")}
+    ${kpi("Resolved","0","","","flat")}
   </div>
 
   <h2 class="sec">Bugs by stage over time — last 4 weeks</h2>
