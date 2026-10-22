@@ -94,8 +94,8 @@ const PRODUCT = "DBs/Services/Apps";
 
 const WEEKS = ["W39", "W40", "W41", "W42"];
 const COLORS = {Open:"#d6443c",Resolved:"#e0a106",Closed:"#1f9d57"};
-const bugStageReleased = {"Open": [6, 8, 8, 10], "Resolved": [10, 4, 4, 5], "Closed": [300, 304, 304, 304]};
-const bugStageFeature  = {"Open": [0, 0, 0, 0], "Resolved": [3, 2, 2, 2], "Closed": [114, 115, 115, 115]};
+const bugStageReleased = {"Open": [5, 8, 8, 10], "Resolved": [11, 4, 4, 5], "Closed": [300, 304, 304, 304]};
+const bugStageFeature  = {"Open": [0, 0, 0, 0], "Resolved": [3, 3, 2, 2], "Closed": [114, 114, 115, 115]};
 
 /* Priority: P1 = blocks users / some test cases · P2 = critical · P3 = mostly UI */
 const PRIO = { P1:{label:"Blocks users",rank:1}, P2:{label:"Critical",rank:2}, P3:{label:"Mostly UI",rank:3}, P4:{label:"Minor",rank:4}, P5:{label:"Trivial",rank:5} };
@@ -108,20 +108,20 @@ const BUGS = [
     "[11.3.0-GA][OLR-Exchange] Send recovery files to a single email failed",
     "P2",
     "regression",
-    "Open",
-    2,
+    "Reopened",
+    5,
     1,
     100,
     "P2",
-    "Ha Tran"
+    "Diet Nguyen"
   ],
   [
     "NJM-206755",
     "[11.3.0-GA][OLR-SQL] Job OLR SQL has failed when behavior is Overwrite",
     "P2",
     "regression",
-    "Open",
-    3,
+    "Reopened",
+    6,
     4,
     100,
     "P2",
@@ -133,7 +133,7 @@ const BUGS = [
     "P3",
     "regression",
     "Open",
-    6,
+    9,
     0,
     100,
     "P3",
@@ -145,7 +145,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    956,
+    959,
     0,
     100,
     "P3",
@@ -157,7 +157,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1697,
+    1700,
     0,
     73,
     "P3",
@@ -169,11 +169,23 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1864,
+    1867,
     2,
     87,
     "P3",
     "Kieu Pham"
+  ],
+  [
+    "NJM-30636",
+    "[10.4][OLR Exchange] Can't load database when change the recovery point",
+    "P3",
+    "regression",
+    "Reopened",
+    1967,
+    0,
+    15,
+    "P3",
+    "Hai Tran"
   ],
   [
     "NJM-14663",
@@ -181,7 +193,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2386,
+    2389,
     1,
     15,
     "P3",
@@ -193,11 +205,11 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2392,
+    2395,
     1,
     15,
     "P3",
-    "Tuan Cao"
+    "Ha Tran"
   ],
   [
     "NJM-11165",
@@ -205,11 +217,11 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2683,
+    2687,
     0,
     15,
     "P3",
-    "Tuan Cao"
+    "Ha Tran"
   ],
   [
     "NJM-10381",
@@ -217,11 +229,11 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2762,
+    2765,
     0,
     60,
     "P3",
-    "Tuan Cao"
+    "Ha Tran"
   ]
 ];
 
