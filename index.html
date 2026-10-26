@@ -92,10 +92,10 @@
    DBs/Services/Apps · Sec/Mon · STORaaS/BKaaS · Internal systems · Core (repo & storage) · Core (general) · FLB/Share */
 const PRODUCT = "DBs/Services/Apps";
 
-const WEEKS = ["W39", "W40", "W41", "W42"];
+const WEEKS = ["W40", "W41", "W42", "W43"];
 const COLORS = {Open:"#d6443c",Resolved:"#e0a106",Closed:"#1f9d57"};
-const bugStageReleased = {"Open": [5, 8, 8, 10], "Resolved": [11, 4, 4, 5], "Closed": [300, 304, 304, 304]};
-const bugStageFeature  = {"Open": [0, 0, 0, 0], "Resolved": [3, 3, 2, 2], "Closed": [114, 114, 115, 115]};
+const bugStageReleased = {"Open": [8, 8, 10, 11], "Resolved": [4, 4, 5, 10], "Closed": [304, 304, 304, 300]};
+const bugStageFeature  = {"Open": [0, 0, 0, 0], "Resolved": [3, 2, 2, 2], "Closed": [114, 115, 115, 115]};
 
 /* Priority: P1 = blocks users / some test cases · P2 = critical · P3 = mostly UI */
 const PRIO = { P1:{label:"Blocks users",rank:1}, P2:{label:"Critical",rank:2}, P3:{label:"Mostly UI",rank:3}, P4:{label:"Minor",rank:4}, P5:{label:"Trivial",rank:5} };
@@ -104,28 +104,28 @@ const PRIO = { P1:{label:"Blocks users",rank:1}, P2:{label:"Critical",rank:2}, P
    [key, summary, priority, type(regression|feature), status, ageDays, linkedSupportTickets, weight, severity, assignee] */
 const BUGS = [
   [
+    "NJM-208165",
+    "[11.3.0-GA][OLR Exchange] Empty database discovery is shown as success (code 0, empty list) instead of a clear \"No Exchange databases found\" error",
+    "P3",
+    "regression",
+    "Open",
+    3,
+    1,
+    100,
+    "P3",
+    "Ha Tran"
+  ],
+  [
     "NJM-207099",
     "[11.3.0-GA][OLR-Exchange] Send recovery files to a single email failed",
     "P2",
     "regression",
     "Reopened",
-    5,
+    9,
     1,
     60,
     "P2",
     "Diet Nguyen"
-  ],
-  [
-    "NJM-206755",
-    "[11.3.0-GA][OLR-SQL] Job OLR SQL has failed when behavior is Overwrite",
-    "P2",
-    "regression",
-    "Reopened",
-    6,
-    4,
-    80,
-    "P2",
-    "Andy Du"
   ],
   [
     "NJM-203679",
@@ -133,7 +133,7 @@ const BUGS = [
     "P3",
     "regression",
     "Open",
-    9,
+    13,
     0,
     56,
     "P3",
@@ -145,7 +145,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    959,
+    963,
     0,
     91,
     "P3",
@@ -157,7 +157,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1700,
+    1704,
     0,
     21,
     "P3",
@@ -169,7 +169,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1867,
+    1871,
     2,
     56,
     "P3",
@@ -181,11 +181,11 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1967,
+    1971,
     0,
     21,
     "P3",
-    "Hai Tran"
+    "Ha Tran"
   ],
   [
     "NJM-14663",
@@ -193,7 +193,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2389,
+    2393,
     1,
     56,
     "P3",
@@ -205,7 +205,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2395,
+    2399,
     1,
     56,
     "P3",
@@ -217,7 +217,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2687,
+    2690,
     0,
     21,
     "P3",
@@ -229,7 +229,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2765,
+    2769,
     0,
     21,
     "P3",
@@ -323,11 +323,11 @@ function renderBug(product){
   </div>
 
     <div class="kpis">
-    ${kpi("Open bugs","10","","▲ 2 vs last week","up",true)}
+    ${kpi("Open bugs","11","","▲ 1 vs last week","up",true)}
     ${kpi("Open P1","0","","","flat",true)}
-    ${kpi("Open P2","2","","▲ 2 vs last week","up",true)}
-    ${kpi("New","3","","▲ 3 vs last week","up")}
-    ${kpi("Resolved","1","","▲ 1 vs last week","down")}
+    ${kpi("Open P2","1","","▼ 1 vs last week","down",true)}
+    ${kpi("New","2","","▼ 1 vs last week","down")}
+    ${kpi("Resolved","7","","▲ 6 vs last week","down")}
   </div>
 
   <h2 class="sec">Bugs by stage over time — last 4 weeks</h2>
@@ -375,7 +375,7 @@ function renderBug(product){
 
 function render(){
   $("#ttl").textContent=`Bug Report — ${PRODUCT}`;
-  $("#meta").textContent=`Reporting week W42 (12 Oct–18 Oct 2026) · assignee: all · live data`;
+  $("#meta").textContent=`Reporting week W43 (19 Oct–25 Oct 2026) · assignee: all · live data`;
   $("#content").innerHTML=renderBug(PRODUCT);
   document.querySelectorAll("#bugTabs button").forEach(b=>b.onclick=()=>{bugFilter=b.dataset.f; currentPage=1; render();});
   document.querySelectorAll("#bugTable th").forEach(th=>th.onclick=()=>{const k=th.dataset.k; if(!k) return; if(sortKey===k){sortDir*=-1;}else{sortKey=k;sortDir=(k==='weight'||k==='age'||k==='linked')?-1:1;} currentPage=1; render();});
