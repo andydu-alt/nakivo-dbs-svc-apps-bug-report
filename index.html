@@ -92,9 +92,9 @@
    DBs/Services/Apps · Sec/Mon · STORaaS/BKaaS · Internal systems · Core (repo & storage) · Core (general) · FLB/Share */
 const PRODUCT = "DBs/Services/Apps";
 
-const WEEKS = ["W41", "W42", "W43", "W44"];
+const WEEKS = ["W42", "W43", "W44", "W45"];
 const COLORS = {Open:"#d6443c",Resolved:"#e0a106",Closed:"#1f9d57"};
-const bugStageReleased = {"Open": [8, 10, 11, 8], "Resolved": [4, 5, 10, 6], "Closed": [304, 304, 300, 308]};
+const bugStageReleased = {"Open": [10, 11, 8, 17], "Resolved": [5, 10, 6, 8], "Closed": [304, 300, 308, 309]};
 const bugStageFeature  = {"Open": [0, 0, 0, 0], "Resolved": [2, 2, 2, 2], "Closed": [115, 115, 115, 115]};
 
 /* Priority: P1 = blocks users / some test cases · P2 = critical · P3 = mostly UI */
@@ -104,16 +104,148 @@ const PRIO = { P1:{label:"Blocks users",rank:1}, P2:{label:"Critical",rank:2}, P
    [key, summary, priority, type(regression|feature), status, ageDays, linkedSupportTickets, weight, severity, assignee] */
 const BUGS = [
   [
-    "NJM-207099",
-    "[11.3.0-GA][OLR-Exchange] Send recovery files to a single email failed",
+    "NJM-212075",
+    "[MSSQL][Backup] When a database is moved to another SQL instance (detach/attach), the backup job fails with \"database cannot be found\" and the chain is not continued",
     "P2",
     "regression",
-    "Reopened",
-    16,
+    "Open",
+    2,
     1,
-    60,
+    100,
     "P2",
-    "Hung Vu"
+    "Ha Tran"
+  ],
+  [
+    "NJM-212046",
+    "[MSSQL][Backup] When the SQL Server service is stopped, the backup job fails with only \"Reason: Internal error\" instead of saying the SQL instance is inaccessible",
+    "P3",
+    "regression",
+    "Open",
+    2,
+    1,
+    100,
+    "P3",
+    "Ha Tran"
+  ],
+  [
+    "NJM-211248",
+    "[MSSQL] \"Remove host and uninstall transporter\" uninstalls the transporter only on the added host; it keeps running on the other AG member host",
+    "P3",
+    "regression",
+    "Open",
+    2,
+    1,
+    100,
+    "P3",
+    "Ha Tran"
+  ],
+  [
+    "NJM-211222",
+    "[MSSQL][Backup] Losing the repository near the end of a run is reported as \"Corrupted backup object disk\" and the job is not retried",
+    "P3",
+    "regression",
+    "Open",
+    2,
+    1,
+    100,
+    "P3",
+    "Ha Tran"
+  ],
+  [
+    "NJM-211221",
+    "[MSSQL][Backup] After a repository connection loss, the automatic retry fails with \"Internal error\" (stale transit lock files) and the job ends Failed",
+    "P3",
+    "regression",
+    "Open",
+    2,
+    1,
+    100,
+    "P3",
+    "Ha Tran"
+  ],
+  [
+    "NJM-210647",
+    "[MSSQL] Director installer only displays English as the available language on both Windows and Linux",
+    "P3",
+    "regression",
+    "Open",
+    3,
+    0,
+    100,
+    "P3",
+    "Ha Tran"
+  ],
+  [
+    "NJM-210295",
+    "[MSSQL][Recovery][Pre/Post job script] Script Timeout: the job log reports \"Process exited with an error: 1\" instead of a timeout, and a script that starts child processes is not stopped",
+    "P3",
+    "regression",
+    "Open",
+    4,
+    1,
+    100,
+    "P3",
+    "Ha Tran"
+  ],
+  [
+    "NJM-210191",
+    "[MSSQL][Recovery] Recovery point on a broken chain can be selected, and the job fails with a generic error and retries every 15 minutes",
+    "P3",
+    "regression",
+    "Open",
+    4,
+    2,
+    100,
+    "P3",
+    "Ha Tran"
+  ],
+  [
+    "NJM-210178",
+    "[MSSQL][Backup Copy] Expired source recovery points are copied instead of skipped and get a new retention on the target",
+    "P3",
+    "regression",
+    "Open",
+    4,
+    1,
+    100,
+    "P3",
+    "Ha Tran"
+  ],
+  [
+    "NJM-210063",
+    "[MSSQL][Recovery] Recovery to a point in time fails when selecting earliest available time and run job",
+    "P2",
+    "regression",
+    "Open",
+    5,
+    1,
+    100,
+    "P2",
+    "Ha Tran"
+  ],
+  [
+    "NJM-210046",
+    "[MSSQL][Recovery] When selecting \"Recover to a point in time\" without changing the default time, clicking Next does not proceed to step 3",
+    "P3",
+    "regression",
+    "Open",
+    5,
+    1,
+    100,
+    "P3",
+    "Ha Tran"
+  ],
+  [
+    "NJM-210001",
+    "[MSSQL][Backup Copy] Active/Synthetic full copies the latest Log/Differential point and marks it as Full",
+    "P2",
+    "regression",
+    "Open",
+    5,
+    2,
+    100,
+    "P2",
+    "Ha Tran"
   ],
   [
     "NJM-47845",
@@ -121,7 +253,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1711,
+    1718,
     0,
     21,
     "P3",
@@ -133,35 +265,11 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    1878,
+    1885,
     2,
     56,
     "P3",
     "Kieu Pham"
-  ],
-  [
-    "NJM-30636",
-    "[10.4][OLR Exchange] Can't load database when change the recovery point",
-    "P3",
-    "regression",
-    "Reopened",
-    1978,
-    0,
-    21,
-    "P3",
-    "Ha Tran"
-  ],
-  [
-    "NJM-14663",
-    "Exchange RTS: recovery of databases fails in the case custom location (path is not standard) with overwrite are selected",
-    "P3",
-    "regression",
-    "Reopened",
-    2400,
-    1,
-    56,
-    "P3",
-    "Ha Tran"
   ],
   [
     "NJM-14604",
@@ -169,7 +277,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2406,
+    2413,
     1,
     56,
     "P3",
@@ -181,7 +289,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2697,
+    2704,
     0,
     21,
     "P3",
@@ -193,7 +301,7 @@ const BUGS = [
     "P3",
     "regression",
     "Reopened",
-    2776,
+    2783,
     0,
     21,
     "P3",
@@ -287,11 +395,11 @@ function renderBug(product){
   </div>
 
     <div class="kpis">
-    ${kpi("Open bugs","8","","▼ 3 vs last week","down",true)}
+    ${kpi("Open bugs","17","","▲ 9 vs last week","up",true)}
     ${kpi("Open P1","0","","","flat",true)}
-    ${kpi("Open P2","1","","","flat",true)}
-    ${kpi("New","0","","▼ 2 vs last week","down")}
-    ${kpi("Resolved","5","","▼ 2 vs last week","up")}
+    ${kpi("Open P2","3","","▲ 2 vs last week","up",true)}
+    ${kpi("New","12","","▲ 12 vs last week","up")}
+    ${kpi("Resolved","3","","▼ 2 vs last week","up")}
   </div>
 
   <h2 class="sec">Bugs by stage over time — last 4 weeks</h2>
@@ -339,7 +447,7 @@ function renderBug(product){
 
 function render(){
   $("#ttl").textContent=`Bug Report — ${PRODUCT}`;
-  $("#meta").textContent=`Reporting week W44 (26 Oct–1 Nov 2026) · assignee: all · live data`;
+  $("#meta").textContent=`Reporting week W45 (2 Nov–8 Nov 2026) · assignee: all · live data`;
   $("#content").innerHTML=renderBug(PRODUCT);
   document.querySelectorAll("#bugTabs button").forEach(b=>b.onclick=()=>{bugFilter=b.dataset.f; currentPage=1; render();});
   document.querySelectorAll("#bugTable th").forEach(th=>th.onclick=()=>{const k=th.dataset.k; if(!k) return; if(sortKey===k){sortDir*=-1;}else{sortKey=k;sortDir=(k==='weight'||k==='age'||k==='linked')?-1:1;} currentPage=1; render();});
